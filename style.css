@@ -129,83 +129,31 @@ section {
   height: 230px;
   width: 230px;
 }
-
-.glow-on-hover {
-  margin-top: 100px;
-  width: 220px;
-  height: 50px;
-  border: none;
-  outline: none;
-  color: #fff;
-  background: #5c4949;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-  padding-top: 13px;
-  text-decoration: none;
-}
-
-.glow-on-hover:before {
-  content: "";
-  background: linear-gradient(
-    45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000
-  );
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing 20s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
-}
-
-.glow-on-hover:active {
-  color: #000;
-}
-
-.glow-on-hover:active:after {
-  background: transparent;
-}
-
-.glow-on-hover:hover:before {
-  opacity: 1;
-}
-
-.glow-on-hover:after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #111;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
-}
-
-@keyframes glowing {
-  0% {
-    background-position: 0 0;
+.glow-on-hover{
+    display:inline-flex;
+    color:#fff;
+    text-decoration:none;
+    font-size:1.5em;
+    position:relative;
+    padding:.3em;
+    margin-top: 0.2em;
+    outline:none;
   }
-  50% {
-    background-position: 400% 0;
+  .glow-on-hover:after{
+    display:block;
+    content:' ';
+    width:100%;
+    height:.2em;
+    background-color:white;
+    position:absolute;
+    right:0;
+    left:0;
+    bottom:-.2em;
+    opacity: 1;  
+    transition: all .2s cubic-bezier(0.81, 0.1, 0.68, 0.96);
+    pointer-events: none;
+    mix-blend-mode: difference; 
+    border-radius:.1em;
   }
-  100% {
-    background-position: 0 0;
-  }
-}
+  .glow-on-hover::after{ width:0;background:#9f9fff;}
+.glow-on-hover:hover::after{width:100%;}
